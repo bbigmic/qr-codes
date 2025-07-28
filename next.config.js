@@ -2,42 +2,53 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  images: {
-    domains: ['kodqr.eu'],
-  },
+  
+  // SEO i performance
+  compress: true,
+  poweredByHeader: false,
+  
+  // Headers dla SEO
   async headers() {
     return [
       {
-        source: '/:path*',
+        source: '/(.*)',
         headers: [
           {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on'
-          },
-          {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=63072000; includeSubDomains; preload'
-          },
-          {
             key: 'X-Content-Type-Options',
-            value: 'nosniff'
+            value: 'nosniff',
           },
           {
             key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
+            value: 'DENY',
           },
           {
             key: 'X-XSS-Protection',
-            value: '1; mode=block'
+            value: '1; mode=block',
           },
           {
             key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin'
-          }
+            value: 'strict-origin-when-cross-origin',
+          },
         ],
       },
-    ]
+    ];
   },
-}
+  
+  // Redirects dla SEO
+  async redirects() {
+    return [
+      {
+        source: '/qr-generator',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/generator-qr',
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
+};
 
-module.exports = nextConfig 
+module.exports = nextConfig; 

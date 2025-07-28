@@ -167,8 +167,24 @@ export default function QRCodeGenerator() {
   return (
     <>
       <Head>
-        <title>Generator Kodów QR - Stwórz profesjonalny kod QR | kodqr.eu</title>
-        <meta name="description" content="Darmowy generator kodów QR z możliwością dostosowania wyglądu i dodania logo. Stwórz profesjonalny kod QR w kilka sekund." />
+        <title>Generator Kodów QR - Darmowe narzędzie online | Stwórz profesjonalny kod QR | kodqr.eu</title>
+        <meta name="description" content="Darmowy generator kodów QR online. Stwórz profesjonalny kod QR z logo, dostosuj kolory i style. Pobierz w wysokiej rozdzielczości PNG lub SVG. Idealne do marketingu i biznesu." />
+        <meta name="keywords" content="generator kodów QR, kod QR online, QR code generator, darmowy generator QR, kody QR z logo, personalizacja kodów QR, wysokiej rozdzielczości QR, PNG QR, SVG QR, marketing QR" />
+        <meta name="author" content="kodqr.eu" />
+        <link rel="canonical" href="https://kodqr.eu" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Generator Kodów QR - Darmowe narzędzie online" />
+        <meta property="og:description" content="Stwórz profesjonalny kod QR w kilka sekund. Dodaj logo, dostosuj kolory i style. Pobierz w wysokiej rozdzielczości PNG lub SVG." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://kodqr.eu" />
+        <meta property="og:image" content="https://kodqr.eu/og-image.jpg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Generator Kodów QR - Darmowe narzędzie online" />
+        <meta name="twitter:description" content="Stwórz profesjonalny kod QR w kilka sekund. Dodaj logo, dostosuj kolory i style." />
+        <meta name="twitter:image" content="https://kodqr.eu/og-image.jpg" />
       </Head>
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
