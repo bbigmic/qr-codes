@@ -1,1 +1,108 @@
- 
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Tło z gradientem -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1D4ED8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="qrGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F3F4F6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Tło -->
+  <rect width="64" height="64" rx="12" fill="url(#bgGradient)"/>
+  
+  <!-- Kod QR stylizowany -->
+  <g transform="translate(8, 8)">
+    <!-- Górny lewy narożnik -->
+    <rect x="0" y="0" width="8" height="8" rx="2" fill="url(#qrGradient)"/>
+    <rect x="2" y="2" width="4" height="4" rx="1" fill="#3B82F6"/>
+    
+    <!-- Górny prawy narożnik -->
+    <rect x="40" y="0" width="8" height="8" rx="2" fill="url(#qrGradient)"/>
+    <rect x="42" y="2" width="4" height="4" rx="1" fill="#3B82F6"/>
+    
+    <!-- Dolny lewy narożnik -->
+    <rect x="0" y="40" width="8" height="8" rx="2" fill="url(#qrGradient)"/>
+    <rect x="2" y="42" width="4" height="4" rx="1" fill="#3B82F6"/>
+    
+    <!-- Wzór QR w środku -->
+    <!-- Górny rząd -->
+    <rect x="12" y="2" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="16" y="2" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="20" y="2" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="24" y="2" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="28" y="2" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="32" y="2" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="36" y="2" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    
+    <!-- Środkowy rząd -->
+    <rect x="2" y="12" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="6" y="12" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="10" y="12" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="14" y="12" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="18" y="12" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="22" y="12" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="26" y="12" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="30" y="12" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="34" y="12" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="38" y="12" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="42" y="12" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="46" y="12" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    
+    <!-- Dolny rząd -->
+    <rect x="12" y="46" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="16" y="46" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="20" y="46" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="24" y="46" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="28" y="46" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="32" y="46" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="36" y="46" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    
+    <!-- Prawy rząd -->
+    <rect x="46" y="16" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="46" y="20" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="46" y="24" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="46" y="28" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="46" y="32" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="46" y="36" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="46" y="40" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    
+    <!-- Dodatkowe punkty w środku -->
+    <rect x="18" y="18" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="22" y="18" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="26" y="18" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="30" y="18" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="34" y="18" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    
+    <rect x="18" y="22" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="26" y="22" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="30" y="22" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="34" y="22" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    
+    <rect x="18" y="26" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="22" y="26" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="26" y="26" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="30" y="26" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="34" y="26" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    
+    <rect x="18" y="30" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="26" y="30" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="30" y="30" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="34" y="30" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    
+    <rect x="18" y="34" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="22" y="34" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="26" y="34" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="30" y="34" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+    <rect x="34" y="34" width="2" height="2" rx="0.5" fill="url(#qrGradient)"/>
+  </g>
+  
+  <!-- Mały symbol narzędzia w prawym dolnym rogu -->
+  <g transform="translate(44, 44)">
+    <circle cx="8" cy="8" r="6" fill="rgba(255,255,255,0.9)" stroke="#3B82F6" stroke-width="1"/>
+    <path d="M6 8 L10 8 M8 6 L8 10" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+</svg> 

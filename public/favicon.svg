@@ -1,1 +1,29 @@
- 
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Tło -->
+  <rect width="32" height="32" rx="6" fill="#3B82F6"/>
+  
+  <!-- Kod QR uproszczony -->
+  <g transform="translate(4, 4)">
+    <!-- Narożniki -->
+    <rect x="0" y="0" width="6" height="6" rx="1" fill="white"/>
+    <rect x="1" y="1" width="4" height="4" rx="0.5" fill="#3B82F6"/>
+    
+    <rect x="18" y="0" width="6" height="6" rx="1" fill="white"/>
+    <rect x="19" y="1" width="4" height="4" rx="0.5" fill="#3B82F6"/>
+    
+    <rect x="0" y="18" width="6" height="6" rx="1" fill="white"/>
+    <rect x="1" y="19" width="4" height="4" rx="0.5" fill="#3B82F6"/>
+    
+    <!-- Środkowe punkty -->
+    <rect x="8" y="8" width="2" height="2" rx="0.5" fill="white"/>
+    <rect x="12" y="8" width="2" height="2" rx="0.5" fill="white"/>
+    <rect x="16" y="8" width="2" height="2" rx="0.5" fill="white"/>
+    
+    <rect x="8" y="12" width="2" height="2" rx="0.5" fill="white"/>
+    <rect x="16" y="12" width="2" height="2" rx="0.5" fill="white"/>
+    
+    <rect x="8" y="16" width="2" height="2" rx="0.5" fill="white"/>
+    <rect x="12" y="16" width="2" height="2" rx="0.5" fill="white"/>
+    <rect x="16" y="16" width="2" height="2" rx="0.5" fill="white"/>
+  </g>
+</svg> 

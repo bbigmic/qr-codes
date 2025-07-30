@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { AD_POSITIONS, type AD_POSITIONS as AD_POSITIONS_TYPE } from './AdSlots';
 
 declare global {
   interface Window {
@@ -6,7 +7,25 @@ declare global {
   }
 }
 
-export default function AdComponent() {
+interface AdComponentProps {
+  position?: keyof typeof AD_POSITIONS;
+  adSlot?: string;
+  adFormat?: string;
+  className?: string;
+}
+
+export default function AdComponent({ 
+  position,
+  adSlot, 
+  adFormat,
+  className
+}: AdComponentProps) {
+  // Użyj konfiguracji pozycji lub bezpośrednich wartości
+  const config = position ? AD_POSITIONS[position] : null;
+  const slot = adSlot || config?.slot || "YOUR_AD_SLOT_ID";
+  const format = adFormat || config?.format || "auto";
+  const finalClassName = className || config?.className || "w-full my-4";
+
   useEffect(() => {
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -16,13 +35,13 @@ export default function AdComponent() {
   }, []);
 
   return (
-    <div className="w-full my-4">
+    <div className={finalClassName}>
       <ins
         className="adsbygoogle"
         style={{ display: 'block' }}
         data-ad-client="ca-pub-9292289650801511"
-        data-ad-slot="YOUR_AD_SLOT_ID" // Tutaj należy wstawić ID slotu reklamowego
-        data-ad-format="auto"
+        data-ad-slot={slot}
+        data-ad-format={format}
         data-full-width-responsive="true"
       />
     </div>

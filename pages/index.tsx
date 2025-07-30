@@ -187,26 +187,43 @@ export default function QRCodeGenerator() {
         <meta name="twitter:image" content="https://kodqr.eu/og-image.jpg" />
       </Head>
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
+          {/* Górna reklama - tylko na dużych ekranach */}
+          <div className="hidden lg:block mb-6">
+            <AdComponent position="TOP" />
+          </div>
+
           <div className="bg-white rounded-2xl shadow-xl p-8">
             <div className="text-center mb-8">
               <h1 className="text-4xl font-bold text-gray-900 mb-2">Generator Kodów QR</h1>
               <p className="text-gray-600">Stwórz profesjonalny kod QR w kilka sekund</p>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Lewa strona - Podgląd QR */}
-              <div className="bg-gray-50 rounded-xl p-6">
-                <div className="flex flex-col items-center justify-center" style={{ minHeight: '400px' }}>
-                  {showText && (
-                    <div className="mb-4 text-2xl font-bold text-gray-900">{customText}</div>
-                  )}
-                  <div ref={qrRef} className="qr-container"></div>
+              <div className="lg:col-span-1">
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="flex flex-col items-center justify-center" style={{ minHeight: '400px' }}>
+                    {showText && (
+                      <div className="mb-4 text-2xl font-bold text-gray-900">{customText}</div>
+                    )}
+                    <div ref={qrRef} className="qr-container"></div>
+                  </div>
+                </div>
+                
+                {/* Reklama pod kodem QR - tylko na dużych ekranach */}
+                <div className="hidden lg:block mt-6">
+                  <AdComponent position="QR_BELOW_DESKTOP" />
+                </div>
+                
+                {/* Reklama pod kodem QR - tylko na urządzeniach mobilnych */}
+                <div className="lg:hidden mt-6">
+                  <AdComponent position="QR_BELOW_MOBILE" />
                 </div>
               </div>
 
-              {/* Prawa strona - Opcje */}
-              <div className="space-y-6">
+              {/* Środkowa kolumna - Opcje */}
+              <div className="lg:col-span-1 space-y-6">
                 <div className="bg-white rounded-xl p-6 border border-gray-200">
                   <h2 className="text-xl font-semibold text-gray-900 mb-4">Podstawowe ustawienia</h2>
                   
@@ -311,6 +328,11 @@ export default function QRCodeGenerator() {
                   <p className="mt-2 text-sm text-gray-500">
                     Zalecany format logo: PNG lub JPG, max 1MB
                   </p>
+                </div>
+
+                {/* Reklama między sekcjami - tylko na urządzeniach mobilnych */}
+                <div className="lg:hidden">
+                  <AdComponent position="MOBILE_MIDDLE" />
                 </div>
 
                 <div className="bg-white rounded-xl p-6 border border-gray-200">
@@ -446,6 +468,11 @@ export default function QRCodeGenerator() {
                   </div>
                 </div>
 
+                {/* Reklama przed przyciskiem pobierania - tylko na urządzeniach mobilnych */}
+                <div className="lg:hidden">
+                  <AdComponent position="MOBILE_BEFORE_DOWNLOAD" />
+                </div>
+
                 <div className="flex justify-center">
                   <button
                     onClick={handleDownload}
@@ -461,10 +488,22 @@ export default function QRCodeGenerator() {
                   </button>
                 </div>
               </div>
+
+              {/* Prawa kolumna - Reklamy na dużych ekranach */}
+              <div className="hidden lg:block lg:col-span-1">
+                <div className="sticky top-8 space-y-6">
+                  <AdComponent position="SIDEBAR_1" />
+                  <AdComponent position="SIDEBAR_2" />
+                  <AdComponent position="SIDEBAR_3" />
+                </div>
+              </div>
             </div>
           </div>
           
-          <AdComponent />
+          {/* Dolna reklama - na wszystkich ekranach */}
+          <div className="mt-8">
+            <AdComponent position="BOTTOM" />
+          </div>
         </div>
       </div>
     </>
