@@ -42,18 +42,24 @@ export default function AdComponent({
       
       if (rect.width === 0) {
         console.warn(`UWAGA: Reklama ${position || 'custom'} ma zerową szerokość!`);
+        console.warn(`Klasa CSS: ${finalClassName}`);
       }
     }
 
-    try {
-      console.log(`Ładowanie reklamy: ${position || 'custom'}, slot: ${slot}`);
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-      adLoaded.current = true;
-      console.log(`Reklama ${position || 'custom'} załadowana pomyślnie`);
-    } catch (err) {
-      console.error(`Błąd podczas ładowania reklamy ${position || 'custom'}:`, err);
-    }
-  }, [position, slot]);
+    // Dodaj małe opóźnienie, aby DOM się zaktualizował
+    const timer = setTimeout(() => {
+      try {
+        console.log(`Ładowanie reklamy: ${position || 'custom'}, slot: ${slot}, format: ${format}`);
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        adLoaded.current = true;
+        console.log(`Reklama ${position || 'custom'} załadowana pomyślnie`);
+      } catch (err) {
+        console.error(`Błąd podczas ładowania reklamy ${position || 'custom'}:`, err);
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [position, slot, format, finalClassName]);
 
   return (
     <div ref={adRef} className={finalClassName}>
@@ -65,6 +71,10 @@ export default function AdComponent({
         data-ad-format={format}
         data-full-width-responsive="true"
       />
+      {/* Placeholder dla reklam w trybie debug */}
+      <div className="text-center text-gray-500 text-sm py-2">
+        Reklama {position || 'custom'} - {slot}
+      </div>
     </div>
   );
 } 

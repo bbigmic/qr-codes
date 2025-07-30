@@ -188,8 +188,8 @@ export default function QRCodeGenerator() {
       </Head>
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          {/* Górna reklama - tylko na dużych ekranach */}
-          <div className="hidden lg:block mb-6">
+          {/* Górna reklama - widoczna na wszystkich ekranach */}
+          <div className="mb-6">
             <AdComponent position="TOP" />
           </div>
 
