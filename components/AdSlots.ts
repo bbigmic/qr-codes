@@ -9,17 +9,17 @@ export const AD_SLOTS = {
   // Reklamy na dużych ekranach (desktop)
   // TODO: Zastąp rzeczywistymi ID z Google AdSense
   TOP_BANNER: "5074075073",        // Format: Poziomy banner - ZAKTUALIZOWANE
-  QR_BELOW: "3123247896",          // Format: Prostokąt
-  SIDEBAR_1: "8076191678",         // Format: Pionowa reklama
-  SIDEBAR_2: "4958525007",         // Format: Pionowa reklama
-  SIDEBAR_3: "3645443335",         // Format: Pionowa reklama
-  BOTTOM_BANNER: "6763110008",     // Format: Poziomy banner
+  QR_BELOW: "3123247896",          // Format: Prostokąt - ZAKTUALIZOWANE
+  SIDEBAR_1: "8076191678",         // Format: Pionowa reklama - ZAKTUALIZOWANE
+  SIDEBAR_2: "4958525007",         // Format: Pionowa reklama - ZAKTUALIZOWANE
+  SIDEBAR_3: "3645443335",         // Format: Pionowa reklama - ZAKTUALIZOWANE
+  BOTTOM_BANNER: "6763110008",     // Format: Poziomy banner - ZAKTUALIZOWANE
   
   // Reklamy na urządzeniach mobilnych
   // TODO: Zastąp rzeczywistymi ID z Google AdSense
-  MOBILE_QR_BELOW: "8821748391",   // Format: Banner
-  MOBILE_MIDDLE: "1019279994",     // Format: Banner
-  MOBILE_BEFORE_DOWNLOAD: "2935212490" // Format: Banner
+  MOBILE_QR_BELOW: "8821748391",   // Format: Banner - ZAKTUALIZOWANE
+  MOBILE_MIDDLE: "1019279994",     // Format: Banner - ZAKTUALIZOWANE
+  MOBILE_BEFORE_DOWNLOAD: "2935212490" // Format: Banner - ZAKTUALIZOWANE
 };
 
 // Formaty reklam
@@ -51,17 +51,17 @@ export const AD_POSITIONS = {
   SIDEBAR_1: {
     slot: AD_SLOTS.SIDEBAR_1,
     format: AD_FORMATS.VERTICAL,
-    className: "w-full my-4"
+    className: "w-full h-[600px] flex items-center justify-center"
   },
   SIDEBAR_2: {
     slot: AD_SLOTS.SIDEBAR_2,
     format: AD_FORMATS.VERTICAL,
-    className: "w-full my-4"
+    className: "w-full h-[600px] flex items-center justify-center"
   },
   SIDEBAR_3: {
     slot: AD_SLOTS.SIDEBAR_3,
     format: AD_FORMATS.VERTICAL,
-    className: "w-full my-4"
+    className: "w-full h-[600px] flex items-center justify-center"
   },
   BOTTOM: {
     slot: AD_SLOTS.BOTTOM_BANNER,

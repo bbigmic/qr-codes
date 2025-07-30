@@ -200,6 +200,64 @@ export default function QRCodeGenerator() {
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* Podstawowe ustawienia - nad kodem QR na mobile */}
+              <div className="lg:hidden lg:col-span-0">
+                <div className="bg-white rounded-xl p-6 border border-gray-200 mb-6">
+                  <h2 className="text-xl font-semibold text-gray-900 mb-4">Podstawowe ustawienia</h2>
+                  
+                  <div className="mb-4">
+                    <label htmlFor="url-mobile" className="block text-sm font-medium text-gray-700 mb-2">
+                      Wprowadź URL
+                    </label>
+                    <input
+                      type="text"
+                      id="url-mobile"
+                      value={url}
+                      onChange={(e) => setUrl(e.target.value)}
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      placeholder="https://example.com"
+                    />
+                  </div>
+
+                  <div className="mb-4">
+                    <label className="flex items-center space-x-3">
+                      <input
+                        type="checkbox"
+                        checked={inverted}
+                        onChange={(e) => setInverted(e.target.checked)}
+                        className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                      />
+                      <span className="text-sm font-medium text-gray-700">
+                        Odwróć kolory (biały kod na czarnym tle)
+                      </span>
+                    </label>
+                  </div>
+
+                  <div className="mb-4">
+                    <label className="flex items-center space-x-3">
+                      <input
+                        type="checkbox"
+                        checked={showText}
+                        onChange={(e) => setShowText(e.target.checked)}
+                        className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                      />
+                      <span className="text-sm font-medium text-gray-700">
+                        Dodaj tekst nad kodem QR
+                      </span>
+                    </label>
+                    {showText && (
+                      <input
+                        type="text"
+                        value={customText}
+                        onChange={(e) => setCustomText(e.target.value)}
+                        className="mt-2 w-full p-2 border border-gray-300 rounded-md"
+                        placeholder="Wprowadź tekst"
+                      />
+                    )}
+                  </div>
+                </div>
+              </div>
+
               {/* Lewa strona - Podgląd QR */}
               <div className="lg:col-span-1">
                 <div className="bg-gray-50 rounded-xl p-6">
@@ -222,8 +280,9 @@ export default function QRCodeGenerator() {
                 </div>
               </div>
 
-              {/* Środkowa kolumna - Opcje */}
-              <div className="lg:col-span-1 space-y-6">
+                            {/* Środkowa kolumna - Opcje (tylko na desktop) */}
+              <div className="hidden lg:block lg:col-span-1 space-y-6">
+                
                 <div className="bg-white rounded-xl p-6 border border-gray-200">
                   <h2 className="text-xl font-semibold text-gray-900 mb-4">Podstawowe ustawienia</h2>
                   
@@ -466,12 +525,19 @@ export default function QRCodeGenerator() {
                       Format SVG jest wektorowy i idealny do druku, podczas gdy PNG jest rastrowy i lepiej sprawdza się w przypadku małych rozmiarów.
                     </p>
                   </div>
+                                </div>
+
+                {/* Reklama między sekcjami - tylko na urządzeniach mobilnych */}
+                <div className="lg:hidden">
+                  <AdComponent position="MOBILE_MIDDLE" />
                 </div>
 
                 {/* Reklama przed przyciskiem pobierania - tylko na urządzeniach mobilnych */}
                 <div className="lg:hidden">
                   <AdComponent position="MOBILE_BEFORE_DOWNLOAD" />
                 </div>
+
+                
 
                 <div className="flex justify-center">
                   <button
@@ -491,10 +557,16 @@ export default function QRCodeGenerator() {
 
               {/* Prawa kolumna - Reklamy na dużych ekranach */}
               <div className="hidden lg:block lg:col-span-1">
-                <div className="sticky top-8 space-y-6">
-                  <AdComponent position="SIDEBAR_1" />
-                  <AdComponent position="SIDEBAR_2" />
-                  <AdComponent position="SIDEBAR_3" />
+                <div className="sticky top-8 space-y-6 min-w-[160px]">
+                  <div className="w-full min-h-[600px]">
+                    <AdComponent position="SIDEBAR_1" />
+                  </div>
+                  <div className="w-full min-h-[600px]">
+                    <AdComponent position="SIDEBAR_2" />
+                  </div>
+                  <div className="w-full min-h-[600px]">
+                    <AdComponent position="SIDEBAR_3" />
+                  </div>
                 </div>
               </div>
             </div>

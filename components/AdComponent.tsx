@@ -21,6 +21,7 @@ export default function AdComponent({
   className
 }: AdComponentProps) {
   const adLoaded = useRef(false);
+  const adRef = useRef<HTMLDivElement>(null);
   
   // Użyj konfiguracji pozycji lub bezpośrednich wartości
   const config = position ? AD_POSITIONS[position] : null;
@@ -34,6 +35,16 @@ export default function AdComponent({
       return;
     }
 
+    // Sprawdź wymiary kontenera reklamy
+    if (adRef.current) {
+      const rect = adRef.current.getBoundingClientRect();
+      console.log(`Reklama ${position || 'custom'}: szerokość=${rect.width}px, wysokość=${rect.height}px`);
+      
+      if (rect.width === 0) {
+        console.warn(`UWAGA: Reklama ${position || 'custom'} ma zerową szerokość!`);
+      }
+    }
+
     try {
       console.log(`Ładowanie reklamy: ${position || 'custom'}, slot: ${slot}`);
       (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -45,7 +56,7 @@ export default function AdComponent({
   }, [position, slot]);
 
   return (
-    <div className={finalClassName}>
+    <div ref={adRef} className={finalClassName}>
       <ins
         className="adsbygoogle"
         style={{ display: 'block' }}
