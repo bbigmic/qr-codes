@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { AD_POSITIONS, type AD_POSITIONS as AD_POSITIONS_TYPE } from './AdSlots';
 
 declare global {
@@ -20,6 +20,8 @@ export default function AdComponent({
   adFormat,
   className
 }: AdComponentProps) {
+  const adLoaded = useRef(false);
+  
   // Użyj konfiguracji pozycji lub bezpośrednich wartości
   const config = position ? AD_POSITIONS[position] : null;
   const slot = adSlot || config?.slot || "YOUR_AD_SLOT_ID";
@@ -27,12 +29,20 @@ export default function AdComponent({
   const finalClassName = className || config?.className || "w-full my-4";
 
   useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (err) {
-      console.error('Błąd podczas ładowania reklamy:', err);
+    // Sprawdź czy reklama już została załadowana
+    if (adLoaded.current) {
+      return;
     }
-  }, []);
+
+    try {
+      console.log(`Ładowanie reklamy: ${position || 'custom'}, slot: ${slot}`);
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+      adLoaded.current = true;
+      console.log(`Reklama ${position || 'custom'} załadowana pomyślnie`);
+    } catch (err) {
+      console.error(`Błąd podczas ładowania reklamy ${position || 'custom'}:`, err);
+    }
+  }, [position, slot]);
 
   return (
     <div className={finalClassName}>
