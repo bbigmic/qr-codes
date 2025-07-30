@@ -527,15 +527,7 @@ export default function QRCodeGenerator() {
                   </div>
                                 </div>
 
-                {/* Reklama między sekcjami - tylko na urządzeniach mobilnych */}
-                <div className="lg:hidden">
-                  <AdComponent position="MOBILE_MIDDLE" />
-                </div>
 
-                {/* Reklama przed przyciskiem pobierania - tylko na urządzeniach mobilnych */}
-                <div className="lg:hidden">
-                  <AdComponent position="MOBILE_BEFORE_DOWNLOAD" />
-                </div>
 
                 
 
@@ -567,6 +559,230 @@ export default function QRCodeGenerator() {
                   <div className="w-full min-h-[600px]">
                     <AdComponent position="SIDEBAR_3" />
                   </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Pozostałe sekcje - widoczne na mobile i desktop */}
+            <div className="space-y-6 mt-8">
+              {/* Logo - widoczne na mobile */}
+              <div className="lg:hidden">
+                <div className="bg-white rounded-xl p-6 border border-gray-200">
+                  <h2 className="text-xl font-semibold text-gray-900 mb-4">Logo</h2>
+                  
+                  <div className="mb-4">
+                    <input
+                      type="file"
+                      ref={fileInputRef}
+                      onChange={handleFileSelect}
+                      accept="image/*"
+                      className="hidden"
+                    />
+                    <button
+                      onClick={() => fileInputRef.current?.click()}
+                      className="w-full inline-flex items-center justify-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    >
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      Wybierz logo
+                    </button>
+                  </div>
+
+                  {logo && (
+                    <div className="mt-4">
+                      <label htmlFor="logo-size-mobile" className="block text-sm font-medium text-gray-700 mb-2">
+                        Rozmiar logo ({Math.round(logoSize * 100)}%)
+                      </label>
+                      <input
+                        type="range"
+                        id="logo-size-mobile"
+                        min="0.1"
+                        max="0.8"
+                        step="0.05"
+                        value={logoSize}
+                        onChange={(e) => setLogoSize(parseFloat(e.target.value))}
+                        className="w-full h-2 bg-blue-100 rounded-lg appearance-none cursor-pointer"
+                      />
+                      <div className="flex justify-between text-xs text-gray-500 mt-1">
+                        <span>10%</span>
+                        <span>80%</span>
+                      </div>
+                    </div>
+                  )}
+                  {uploadError && (
+                    <p className="mt-2 text-sm text-red-600">{uploadError}</p>
+                  )}
+                  <p className="mt-2 text-sm text-gray-500">
+                    Zalecany format logo: PNG lub JPG, max 1MB
+                  </p>
+                               </div>
+             </div>
+
+             {/* Reklama między sekcjami - tylko na urządzeniach mobilnych */}
+             <div className="lg:hidden">
+               <AdComponent position="MOBILE_MIDDLE" />
+             </div>
+
+             {/* Styl kodu QR - widoczne na mobile */}
+              <div className="lg:hidden">
+                <div className="bg-white rounded-xl p-6 border border-gray-200">
+                  <h2 className="text-xl font-semibold text-gray-900 mb-4">Styl kodu QR</h2>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Styl punktów
+                      </label>
+                      <select
+                        value={dotsStyle}
+                        onChange={(e) => setDotsStyle(e.target.value as QRDotType)}
+                        className="w-full p-2 border border-gray-300 rounded-md"
+                      >
+                        <option value="rounded">Zaokrąglone</option>
+                        <option value="dots">Kropki</option>
+                        <option value="square">Kwadratowe</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Kolor punktów
+                      </label>
+                      <input
+                        type="color"
+                        value={dotsColor}
+                        onChange={(e) => setDotsColor(e.target.value)}
+                        className="w-full h-10 p-1 border border-gray-300 rounded-md"
+                        disabled={inverted}
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Styl narożników
+                      </label>
+                      <select
+                        value={cornerSquaresStyle}
+                        onChange={(e) => setCornerSquaresStyle(e.target.value as QRCornerSquareType)}
+                        className="w-full p-2 border border-gray-300 rounded-md"
+                      >
+                        <option value="extra-rounded">Bardzo zaokrąglone</option>
+                        <option value="rounded">Zaokrąglone</option>
+                        <option value="square">Kwadratowe</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Kolor narożników
+                      </label>
+                      <input
+                        type="color"
+                        value={cornerSquaresColor}
+                        onChange={(e) => setCornerSquaresColor(e.target.value)}
+                        className="w-full h-10 p-1 border border-gray-300 rounded-md"
+                        disabled={inverted}
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Styl punktów narożnych
+                      </label>
+                      <select
+                        value={cornerDotsStyle}
+                        onChange={(e) => setCornerDotsStyle(e.target.value as QRCornerDotType)}
+                        className="w-full p-2 border border-gray-300 rounded-md"
+                      >
+                        <option value="dot">Kropka</option>
+                        <option value="square">Kwadrat</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Kolor punktów narożnych
+                      </label>
+                      <input
+                        type="color"
+                        value={cornerDotsColor}
+                        onChange={(e) => setCornerDotsColor(e.target.value)}
+                        className="w-full h-10 p-1 border border-gray-300 rounded-md"
+                        disabled={inverted}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Rozdzielczość i format - widoczne na mobile */}
+              <div className="lg:hidden">
+                <div className="bg-white rounded-xl p-6 border border-gray-200">
+                  <h2 className="text-xl font-semibold text-gray-900 mb-4">Rozdzielczość i format</h2>
+                  
+                  <div className="mb-4">
+                    <label htmlFor="resolution-mobile" className="block text-sm font-medium text-gray-700 mb-2">
+                      Rozdzielczość kodu QR ({resolution}x{resolution}px)
+                    </label>
+                    <select
+                      id="resolution-mobile"
+                      value={resolution}
+                      onChange={(e) => setResolution(Number(e.target.value))}
+                      className="w-full p-2 border border-gray-300 rounded-md"
+                    >
+                      <option value="512">512x512px</option>
+                      <option value="1024">1024x1024px</option>
+                      <option value="2048">2048x2048px</option>
+                      <option value="4096">4096x4096px</option>
+                      <option value="6144">6144x6144px</option>
+                      <option value="8192">8192x8192px</option>
+                    </select>
+                    <p className="mt-2 text-sm text-gray-500">
+                      Wyższa rozdzielczość zapewnia lepszą jakość, ale zwiększa rozmiar pliku. Rozdzielczości powyżej 4096px mogą wymagać więcej czasu na wygenerowanie.
+                    </p>
+                  </div>
+
+                  <div className="mb-4">
+                    <label htmlFor="outputFormat-mobile" className="block text-sm font-medium text-gray-700 mb-2">
+                      Format wyjściowy
+                    </label>
+                    <select
+                      id="outputFormat-mobile"
+                      value={outputFormat}
+                      onChange={(e) => setOutputFormat(e.target.value as 'png' | 'svg')}
+                      className="w-full p-2 border border-gray-300 rounded-md"
+                    >
+                      <option value="png">PNG</option>
+                      <option value="svg">SVG</option>
+                    </select>
+                    <p className="mt-2 text-sm text-gray-500">
+                      Format SVG jest wektorowy i idealny do druku, podczas gdy PNG jest rastrowy i lepiej sprawdza się w przypadku małych rozmiarów.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+                             {/* Reklama przed przyciskiem pobierania - tylko na urządzeniach mobilnych */}
+               <div className="lg:hidden">
+                 <AdComponent position="MOBILE_BEFORE_DOWNLOAD" />
+               </div>
+
+               {/* Przycisk pobierania - widoczne na mobile */}
+               <div className="lg:hidden">
+                <div className="flex justify-center">
+                  <button
+                    onClick={handleDownload}
+                    disabled={!url}
+                    className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+                  >
+                    <div className="flex items-center justify-center">
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                      </svg>
+                      Pobierz kod QR
+                    </div>
+                  </button>
                 </div>
               </div>
             </div>
