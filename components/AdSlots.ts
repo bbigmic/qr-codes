@@ -28,55 +28,54 @@ export const AD_FORMATS = {
   VERTICAL: "vertical", 
   RECTANGLE: "rectangle",
   BANNER: "banner",
-  AUTO: "auto",
-  RESPONSIVE: "auto"
+  AUTO: "auto"
 } as const;
 
 // Typy reklam dla różnych pozycji
 export const AD_POSITIONS = {
   TOP: {
     slot: AD_SLOTS.TOP_BANNER,
-    format: AD_FORMATS.AUTO,
+    format: AD_FORMATS.HORIZONTAL,
     className: "w-full h-[90px] my-4 bg-gray-100 rounded-lg flex items-center justify-center"
   },
   QR_BELOW_DESKTOP: {
     slot: AD_SLOTS.QR_BELOW,
-    format: AD_FORMATS.AUTO,
+    format: AD_FORMATS.RECTANGLE,
     className: "w-full h-[250px] my-4 bg-gray-100 rounded-lg flex items-center justify-center"
   },
   QR_BELOW_MOBILE: {
     slot: AD_SLOTS.MOBILE_QR_BELOW,
-    format: AD_FORMATS.AUTO,
+    format: AD_FORMATS.BANNER,
     className: "w-full h-[100px] my-4 bg-gray-100 rounded-lg flex items-center justify-center"
   },
   SIDEBAR_1: {
     slot: AD_SLOTS.SIDEBAR_1,
-    format: AD_FORMATS.AUTO,
+    format: AD_FORMATS.VERTICAL,
     className: "w-full h-[600px] bg-gray-100 rounded-lg flex items-center justify-center"
   },
   SIDEBAR_2: {
     slot: AD_SLOTS.SIDEBAR_2,
-    format: AD_FORMATS.AUTO,
+    format: AD_FORMATS.VERTICAL,
     className: "w-full h-[600px] bg-gray-100 rounded-lg flex items-center justify-center"
   },
   SIDEBAR_3: {
     slot: AD_SLOTS.SIDEBAR_3,
-    format: AD_FORMATS.AUTO,
+    format: AD_FORMATS.VERTICAL,
     className: "w-full h-[600px] bg-gray-100 rounded-lg flex items-center justify-center"
   },
   BOTTOM: {
     slot: AD_SLOTS.BOTTOM_BANNER,
-    format: AD_FORMATS.AUTO,
+    format: AD_FORMATS.HORIZONTAL,
     className: "w-full h-[90px] my-4 bg-gray-100 rounded-lg flex items-center justify-center"
   },
   MOBILE_MIDDLE: {
     slot: AD_SLOTS.MOBILE_MIDDLE,
-    format: AD_FORMATS.AUTO,
+    format: AD_FORMATS.BANNER,
     className: "w-full h-[100px] my-4 bg-gray-100 rounded-lg flex items-center justify-center"
   },
   MOBILE_BEFORE_DOWNLOAD: {
     slot: AD_SLOTS.MOBILE_BEFORE_DOWNLOAD,
-    format: AD_FORMATS.AUTO,
+    format: AD_FORMATS.BANNER,
     className: "w-full h-[100px] my-4 bg-gray-100 rounded-lg flex items-center justify-center"
   }
 }; 
